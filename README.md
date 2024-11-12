@@ -1,7 +1,7 @@
 # Youtube-Instagram-Comment-Scrapper-Sentiment-Analysis
 
-Project Youtube Scraper Menggunakan Apiv3 &amp;
-Project Instagram menggunakan repositori [Instaloader](https://github.com/instaloader/instaloader)
+Project Youtube Scraper with Apiv3 &amp;
+Project Instagram with repositori [Instaloader](https://github.com/instaloader/instaloader)
 Flask Web Interface
 
 **USAGE**
