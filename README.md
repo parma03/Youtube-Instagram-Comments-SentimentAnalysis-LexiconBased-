@@ -1,7 +1,13 @@
 # Youtube-Instagram-Comment-Scrapper-Sentiment-Analysis
 
 ![Alt text](image.png)
+<b>1. Analyst</b>
 
+![Alt text](imagescyt.png)
+<b>2. YT Scrap</b>
+
+![Alt text](imagescig.png)
+<b>3. IG Scrap</b>
 
 Project Youtube Scraper with Apiv3 &amp;
 Project Instagram with repositori [Instaloader](https://github.com/instaloader/instaloader)
