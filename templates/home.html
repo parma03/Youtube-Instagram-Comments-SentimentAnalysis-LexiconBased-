@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{tittle}}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='bg/icon.png') }}" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://codepen.io/naveenbhaskar/pen/WGPzQv.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.css">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{{ url_for('static', filename='bg/icon.png') }}" alt="Comapny logo">Sentiment Analysis
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <img src="{{ url_for('static', filename='bg/') }}{{session.level}}.png" alt="User picture"
+                    class="profile-image">
+                <div class="sidebar-user-name">
+                    {{session.name}}
+                    <br>
+                    <h6>{{session.level}}</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline">
+                <a href="/logout">
+                    <i class='bx bx-log-out bx-flip-horizontal'></i>
+                </a>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        {% if session.level == 'admin' %}
+        <ul class="sidebar-menu">
+            <li>
+                <a href="/home" class="active">
+                    <i class='bx bx-home'></i>
+                    <span>dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/account">
+                    <i class='bx bx-user-circle'></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-message-alt-dots'></i>
+                    <span>Scrapping</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/scrapping/instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/scrapping/youtube">
+                            Youtube
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">                
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span>Analysis Sentiment</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/analysis">
+                            Analisa Dataset
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/hasil">
+                            Hasil Analisa Dataset
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bxs-report'></i>
+                    <span>Laporan Kinerja</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/laporan/scrapping">
+                            Scraping
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/laporan/analisis">
+                            Sentimen Analisis
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                    <i class='bx bx-moon'></i>
+                    <span class="darkmode-switch"></span>
+                </a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="sidebar-menu">
+            <li>
+                <a href="/home" class="active">
+                    <i class='bx bx-home'></i>
+                    <span>dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-message-alt-dots'></i>
+                    <span>Scrapping</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/scrapping/instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/scrapping/youtube">
+                            Youtube
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">                
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span>Analysis Sentiment</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/analysis">
+                            Analisa Dataset
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/hasil">
+                            Hasil Analisa Dataset
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                    <i class='bx bx-moon'></i>
+                    <span class="darkmode-switch"></span>
+                </a>
+            </li>
+        </ul>
+        {% endif %}
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                {{tittle1}}
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="information">
+                <div class="text-animation">
+                    <div class="text1">
+                        <ul class="bxslider left">
+                            <li>How to Use?</li>
+                            <li>1.Scraping</li>
+                            <li>2.Analysis the Sentiment</li>
+                            <li>3.Result</li>
+                        </ul>
+                    </div>
+                    <div class="text2">
+                        <ul class="bxslider right">
+                            <li>Sentiment Analysis System</li>
+                            <li>Sentiment will show barchart with value negative,postive,and neutral</li>
+                            <li>Upload data comments from Scrape and get Sentiment from data</li>
+                            <li>Scrape Comments from Instagram or Youtube and download dataset result.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

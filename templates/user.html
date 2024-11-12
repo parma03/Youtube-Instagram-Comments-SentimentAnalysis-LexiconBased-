@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{tittle}}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='bg/icon.png') }}" type="image/png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/grid.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/app.css') }}">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://codepen.io/naveenbhaskar/pen/WGPzQv.scss">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.css">
+    <!-- BOXICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{{ url_for('static', filename='bg/icon.png') }}" alt="Comapny logo">Sentiment Analysis
+            <div class="sidebar-close" id="sidebar-close">
+                <i class='bx bx-left-arrow-alt'></i>
+            </div>
+        </div>
+        <div class="sidebar-user">
+            <div class="sidebar-user-info">
+                <img src="{{ url_for('static', filename='bg/') }}{{session.level}}.png" alt="User picture"
+                    class="profile-image">
+                <div class="sidebar-user-name">
+                    {{session.name}}
+                    <br>
+                    <h6>{{session.level}}</h6>
+                </div>
+            </div>
+            <button class="btn btn-outline">
+                <a href="/logout">
+                    <i class='bx bx-log-out bx-flip-horizontal'></i>
+                </a>
+            </button>
+        </div>
+        <!-- SIDEBAR MENU -->
+        {% if session.level == 'admin' %}
+        <ul class="sidebar-menu">
+            <li>
+                <a href="/home">
+                    <i class='bx bx-home'></i>
+                    <span>dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/account" class="active">
+                    <i class='bx bx-user-circle'></i>
+                    <span>Account</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-message-alt-dots'></i>
+                    <span>Scrapping</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/scrapping/instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/scrapping/youtube">
+                            Youtube
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">                
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span>Analysis Sentiment</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/analysis">
+                            Analisa Dataset
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/hasil">
+                            Hasil Analisa Dataset
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bxs-report'></i>
+                    <span>Laporan Kinerja</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/laporan/scrapping">
+                            Scraping
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/laporan/analisis">
+                            Sentimen Analisis
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                    <i class='bx bx-moon'></i>
+                    <span class="darkmode-switch"></span>
+                </a>
+            </li>
+        </ul>
+        {% else %}
+        <ul class="sidebar-menu">
+            <li>
+                <a href="/home">
+                    <i class='bx bx-home'></i>
+                    <span>dashboard</span>
+                </a>
+            </li>
+            <li class="sidebar-submenu">
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-message-alt-dots'></i>
+                    <span>Scrapping</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/scrapping/instagram">
+                            Instagram
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/scrapping/youtube">
+                            Youtube
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="sidebar-submenu">                
+                <a href="#" class="sidebar-menu-dropdown">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span>Analysis Sentiment</span>
+                    <div class="dropdown-icon"></div>
+                </a>
+                <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                    <li>
+                        <a href="/analysis">
+                            Analisa Dataset
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/hasil">
+                            Hasil Analisa Dataset
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="darkmode-toggle" id="darkmode-toggle">
+                    <i class='bx bx-moon'></i>
+                    <span class="darkmode-switch"></span>
+                </a>
+            </li>
+        </ul>
+        {% endif %}
+        <!-- END SIDEBAR MENU -->
+    </div>
+    <!-- END SIDEBAR -->
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+        <div class="main-header">
+            <div class="mobile-toggle" id="mobile-toggle">
+                <i class='bx bx-menu-alt-right'></i>
+            </div>
+            <div class="main-title">
+                {{tittle1}}
+            </div>
+        </div>
+        <div class="main-content">
+            <!-- ORDERS TABLE -->
+            <div class="box">
+                <div class="box-header">
+                    <button class="add status-button" data-toggle="modal" data-target="#addmodal">
+                        <i class='bx bx-user-plus'></i>Add Account
+                    </button>
+                </div>
+                <div class="box-body overflow-scroll">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Picture & Name</th>
+                                <th>Username</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        {% set count = [] %}
+                        {% for a in akun %}
+                        <tbody>
+                            <tr>
+                                {% set __ = count.append(1) %}
+                                <td>{{ count|length }}.</td>
+                                <td>
+                                    <div class="order-owner">
+                                        <img src="{{ url_for('static', filename='bg/') }}{{a.4}}.png"
+                                            alt="user image">
+                                        <span>{{a.1}}</span>
+                                    </div>
+                                </td>
+                                <td>{{a.2}}</td>
+                                <td>
+                                    <div class="payment-status {{a.4}}">
+                                        <div class="dot"></div>
+                                        <span>{{a.4}}</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <button class="edit edit-button" data-toggle="modal"
+                                        data-target="#editmodal{{a.0}}">
+                                        <i class='bx bx-edit-alt'></i>Edit
+                                    </button>
+                                    <!-- FORM EDIT -->
+                                    <div class="modal fade" id="editmodal{{a.0}}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Account</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ url_for('edit') }}" method="POST"
+                                                        enctype="multipart/form-data">
+                                                        <input type="hidden" name="id" value="{{a.0}}">
+                                                        <input type="text" name="name" value="{{a.1}}"
+                                                            autocomplete="off">
+                                                        <input type="text" name="username" value="{{a.2}}"
+                                                            autocomplete="off">
+                                                        <i class="bx1 bx bx-low-vision" id="eye"></i>
+                                                        <input type="password" name="password"
+                                                            placeholder="Fill Passsword" id="pwd" autocomplete="off" required>
+                                                        <select class="input" name="level">
+                                                            <option value="admin">Admin</option>
+                                                            <option value="user">User</option>
+                                                        </select>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Close</button>
+                                                            <button type="submit" class="btn btn-primary">Save
+                                                                changes</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END FORM EDIT-->
+
+                                    <button class="delete delete-button" data-toggle="modal"
+                                        data-target="#deletemodal{{a.0}}">
+                                        <i class='bx bx-trash'></i>Delete
+                                    </button>
+                                    <!-- FORM DELETE -->
+                                    <div class="modal fade" id="deletemodal{{a.0}}" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Are you sure want to
+                                                        delete?</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <a href="/account/delete/{{ a[0] }}">
+                                                        <button type="submit" class="btn btn-primary">
+                                                            Delete User?</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END FORM DELETE -->
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+            <!-- END ORDERS TABLE -->
+
+        </div>
+    </div>
+    <!-- END MAIN CONTENT -->
+
+    <div class="overlay"></div>
+
+    <!-- FORM ADD -->
+    <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url_for('account') }}" method="POST" enctype="multipart/form-data">
+                        <input type="text" name="name" placeholder="Name" autocomplete="off" required>
+                        <input type="text" name="username" placeholder="Username" autocomplete="off" required>
+                        <i class="bx1 bx bx-low-vision" id="eye"></i>
+                        <input type="password" name="password" placeholder="Passsword" id="pwd" autocomplete="off" required>
+                        <select class="input" name="level">
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END FORM ADD -->
+
+    <!-- SCRIPT -->
+    <!-- APEX CHART -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

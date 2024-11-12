@@ -1,0 +1,19 @@
+,Comments,Translate,Subjectivity,Polarity,Subject Label,Analysis
+0,Plot twice Dia udah stres beneran makanya ngajak serlock,Plot twist He was really stressed that's why he invited Serlok,0.2,0.2,Teks tersebut cenderung objektif,Positive
+1, Cuma diserang  jam mental langsung rusak  apakabar para artis yang sampe berhari hari  ,It's just that the mental clock is immediately damaged when the news of the artists lasts for days,0.2,-0.1,Teks tersebut cenderung objektif,Negative
+2,Maaf klo boleh nanya konteks nya apa ya ,"Sorry, can I ask what the context is?",1.0,-0.5,Teks tersebut sangat subjektif,Negative
+3, akbaralfharabi rebutan ikan tongkol katanya,"Akbaralfharabi fighting for tuna fish, he said",0.0,0.0,Teks tersebut sangat objektif,Neutral
+4,Konteks ,Context,0.0,0.0,Teks tersebut sangat objektif,Neutral
+5,Ayo bg sama gw,"Come on, come with me",0.0,0.0,Teks tersebut sangat objektif,Neutral
+6,kebalik liat jam nya,looked back at the clock,0.0,0.0,Teks tersebut sangat objektif,Neutral
+7, kau ni roby  kadang ntah lah  kalau ada lomba mirip bb  bb nya juara   ,"You're Roby, sometimes you don't know if there's a competition like BB, BB is the winner",0.0,0.0,Teks tersebut sangat objektif,Neutral
+8,punya  pribadi keknya,he has his own personality,1.0,0.6,Teks tersebut sangat subjektif,Positive
+9,  ,,0.0,0.0,Teks tersebut sangat objektif,Neutral
+10, Maaf  saya kasian liat anda roby  ,"Sorry, I feel sorry for you, Roby",1.0,-0.5,Teks tersebut sangat subjektif,Negative
+11,  bridilasjamta saya gk jadi kasian liat anda  yok sediain waktu dan tempat  Silahkan tulis wasiat terakhir mu robi ,"bridilasjamta I don't feel sorry to see you, let's prepare the time and place. Please write your last will, Robi.",0.5333333333333333,-0.25,Teks tersebut netral,Negative
+12, bridilasjamta anjir lah,bridilasjamta anjir lah,0.0,0.0,Teks tersebut sangat objektif,Neutral
+13, ferry  ,ferry,0.0,0.0,Teks tersebut sangat objektif,Neutral
+14,Jangan jangan dia titisan Joker ,Don't let him drop the Joker,0.0,0.0,Teks tersebut sangat objektif,Neutral
+15, riz_rizki ,riz_rizki,0.0,0.0,Teks tersebut sangat objektif,Neutral
+16,Roby nantangin netizen indo  Yakin lu,Roby challenges Indonesian netizens. Are you sure?,0.8888888888888888,0.5,Teks tersebut sangat subjektif,Positive
+17, almafarhan__ sadis lo orang ini ,almafarhan__ this person is sadistic,0.0,0.0,Teks tersebut sangat objektif,Neutral
