@@ -13,8 +13,9 @@ Flask Web Interface
 **FITUR**
 - [x] Youtube Comment Link ID
 - [x] Instagram Comment Link ID Post
-- [x] Instagram Comment Username
-- [x] Instagram Comment Username with List Multiple Target
+- [x] Instagram Comment Dataset to CSV
+- [x] Youtube Comment Dataset to CSV
+- [x] Sentiment Graph 
 - [x] Web based
 
 
