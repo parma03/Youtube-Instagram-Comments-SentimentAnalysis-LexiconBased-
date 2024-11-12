@@ -1,6 +1,6 @@
 # Youtube-Instagram-Comment-Scrapper-Sentiment-Analysis
 
-![Alt text](images.png)
+![Alt text](image.png)
 
 
 Project Youtube Scraper with Apiv3 &amp;
